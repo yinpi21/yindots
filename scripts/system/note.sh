@@ -1,14 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 source "$HOME/afs/.confs/scripts/globals.sh"
-LOCK_FILE="/tmp/note.lock"
+
+LOCK_FILE="/tmp/note_${USER}.lock"
 NOTE_FILE="$AFS/.note.txt"
 
-if [ ! -f "$LOCK_FILE" ] || ! (kill -s 0 $(cat "$LOCK_FILE"));  then
-    rm -f "$NOTE_FILE.swp"
-    touch "$LOCK_FILE"
-    echo "$PPID" > "$LOCK_FILE"
+(
+    flock -n 9 || exit 0
+    rm -f "${NOTE_FILE}.swp"
     vim "$NOTE_FILE" +startinsert
-    rm "$LOCK_FILE"
-fi
-
+) 9>"$LOCK_FILE"

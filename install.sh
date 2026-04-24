@@ -129,16 +129,18 @@ ok "  ~/.emacs.d/init.el → $CONFIG/emacs/init.el"
 # ══════════════════════════════════════════════════════════════════════════════
 info "Configuration de clang-format..."
 CLANG_DIR="$HOME/.config/clang-format"
+CLANG_SRC="$CONFIG/config/clang-format"
 
-# Lien C
-if [ -f "$CLANG_DIR/clang-format-c-epita-ing1-2025-2026" ]; then
-    ln -sf "$CLANG_DIR/clang-format-c-epita-ing1-2025-2026" "$CLANG_DIR/clang-format-c-current"
+# Symlinks relatifs pour éviter la chaîne d'indirection via ~/.config/clang-format
+mkdir -p "$CLANG_DIR"
+
+if [ -f "$CLANG_SRC/clang-format-c-epita-ing1-2025-2026" ]; then
+    ln -sf "clang-format-c-epita-ing1-2025-2026" "$CLANG_DIR/clang-format-c-current"
     ok "  clang-format-c-current → clang-format-c-epita-ing1-2025-2026"
 fi
 
-# Lien C++
-if [ -f "$CLANG_DIR/clang-format-cxx-epita-ing1-2025-2026" ]; then
-    ln -sf "$CLANG_DIR/clang-format-cxx-epita-ing1-2025-2026" "$CLANG_DIR/clang-format-cxx-current"
+if [ -f "$CLANG_SRC/clang-format-cxx-epita-ing1-2025-2026" ]; then
+    ln -sf "clang-format-cxx-epita-ing1-2025-2026" "$CLANG_DIR/clang-format-cxx-current"
     ok "  clang-format-cxx-current → clang-format-cxx-epita-ing1-2025-2026"
 fi
 

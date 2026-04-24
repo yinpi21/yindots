@@ -44,7 +44,7 @@ skip() { printf "  - %s\n" "$1"; }
 remove_link() {
     local dst="$1"
     if [ -L "$dst" ]; then
-        target="$(readlink "$dst")"
+        local target="$(readlink "$dst")"
         # Résoudre ~ dans la cible pour la comparaison
         target_expanded="${target/#\~/$HOME}"
         if [[ "$target_expanded" == "$CONFS"* ]]; then

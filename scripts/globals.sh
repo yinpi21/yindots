@@ -40,7 +40,7 @@ if [ -f "$VERSION_FILE" ]; then
     VERSION=$(cat "$VERSION_FILE")
 fi
 
-REPO_VERSION_FILE="/tmp/confs_repo_version"
+REPO_VERSION_FILE="/tmp/confs_repo_version_${USER}"
 if ! [ -f "$REPO_VERSION_FILE" ]; then
     curl -Ls "$RAW_REPO_CONFS/version" > "$REPO_VERSION_FILE" 2>/dev/null
 fi

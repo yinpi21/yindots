@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Vérifie si une mise à jour de la config est disponible
 
 source "$HOME/afs/.confs/scripts/globals.sh"

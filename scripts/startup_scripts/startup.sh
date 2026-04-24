@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Script de démarrage i3 — EPITA NixOS
 # Lancé par exec --no-startup-id dans la config i3
 
@@ -15,38 +15,38 @@ dunstify -r "$IDA" -t 0 "=== Startup EPITA ==="
 
 # ── Wallpaper ──────────────────────────────────────────────────────────────────
 if [ -f "$SCRIPTS/wallpaper_scripts/safe_change_wallpaper.sh" ]; then
-    sh "$SCRIPTS/wallpaper_scripts/safe_change_wallpaper.sh" > /dev/null 2>&1
+    bash "$SCRIPTS/wallpaper_scripts/safe_change_wallpaper.sh" > /dev/null 2>&1
 fi
 
 # ── Installation des packages nix si absents ───────────────────────────────────
 if [ ! -x "$HOME/.nix-profile/bin/bat" ]; then
     dunstify -r "$IDB" -t 0 "Installation des packages..."
 
-    PACKAGES="
-    nixpkgs#autotiling
-    nixpkgs#papirus-icon-theme
-    nixpkgs#bat
-    nixpkgs#adw-gtk3
-    nixpkgs#pqiv
-    nixpkgs#emacs
-    nixpkgs#clang-tools
-    nixpkgs#ripgrep
-    nixpkgs#flameshot
-    nixpkgs#fzf
-    nixpkgs#fd
-    nixpkgs#zoxide
-    nixpkgs#matugen
-    nixpkgs#starship
-    nixpkgs#rofi
-    nixpkgs#picom
-    nixpkgs#polybar
-    nixpkgs#feh
-    nixpkgs#bc
-    nixpkgs#playerctl
-    nixpkgs#nerd-fonts.jetbrains-mono
-    "
+    PACKAGES=(
+        nixpkgs#autotiling
+        nixpkgs#papirus-icon-theme
+        nixpkgs#bat
+        nixpkgs#adw-gtk3
+        nixpkgs#pqiv
+        nixpkgs#emacs
+        nixpkgs#clang-tools
+        nixpkgs#ripgrep
+        nixpkgs#flameshot
+        nixpkgs#fzf
+        nixpkgs#fd
+        nixpkgs#zoxide
+        nixpkgs#matugen
+        nixpkgs#starship
+        nixpkgs#rofi
+        nixpkgs#picom
+        nixpkgs#polybar
+        nixpkgs#feh
+        nixpkgs#bc
+        nixpkgs#playerctl
+        nixpkgs#nerd-fonts.jetbrains-mono
+    )
 
-    if nix profile install $PACKAGES --impure > /dev/null 2>&1; then
+    if nix profile install "${PACKAGES[@]}" > /dev/null 2>&1; then
         fc-cache -fv > /dev/null 2>&1
         dunstify -r "$IDB" -t 5000 "Packages installés [OK]"
     else
@@ -91,8 +91,8 @@ if [ -d "$SCRIPTS/startup_scripts" ]; then
         fi
     done
 
-    [ -f "$SCRIPTS/startup_scripts/aklogger.sh" ]     && sh "$SCRIPTS/startup_scripts/aklogger.sh"     > /dev/null 2>&1 &
-    [ -f "$SCRIPTS/startup_scripts/check_update.sh" ] && sh "$SCRIPTS/startup_scripts/check_update.sh" > /dev/null 2>&1 &
+    [ -f "$SCRIPTS/startup_scripts/aklogger.sh" ]     && bash "$SCRIPTS/startup_scripts/aklogger.sh"     > /dev/null 2>&1 &
+    [ -f "$SCRIPTS/startup_scripts/check_update.sh" ] && bash "$SCRIPTS/startup_scripts/check_update.sh" > /dev/null 2>&1 &
 fi
 
 dunstify -r "$IDB" -t 5000 "Tout est prêt !"
