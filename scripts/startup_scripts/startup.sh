@@ -12,11 +12,6 @@ if [ -f "$SCRIPTS/wallpaper_scripts/safe_change_wallpaper.sh" ]; then
     sh "$SCRIPTS/wallpaper_scripts/safe_change_wallpaper.sh" > /dev/null 2>&1
 fi
 
-# ── Optimot ───────────────────────────────────────────────────────────────────
-if command -v xkbcomp > /dev/null 2>&1 && [ -f "$CFG/Optimot/load_keyboard.sh" ]; then
-    sh "$CFG/Optimot/load_keyboard.sh" > /dev/null 2>&1
-fi
-
 # ── Paquets Nix (si bat absent = 1er démarrage) ───────────────────────────────
 if [ ! -x "$HOME/.nix-profile/bin/bat" ]; then
     dunstify -r "$IDB" -t 0 "Installation des paquets supplémentaires..."
