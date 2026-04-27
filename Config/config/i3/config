@@ -48,7 +48,6 @@ bindsym $mod+Shift+Return   exec --no-startup-id sh $scripts/system/double.sh
 
 # ── Apps ──────────────────────────────────────────────────────────────────────
 bindsym $mod+f          exec firefox
-bindsym $mod+Shift+f    exec firefox
 bindsym $mod+n          exec --no-startup-id alacritty --class "float_window" -e sh $scripts/system/note.sh
 bindsym $mod+b          exec blueman-manager
 bindsym $mod+Shift+p    exec pavucontrol
