@@ -37,6 +37,7 @@ if [ ! -x "$HOME/.nix-profile/bin/bat" ]; then
     nixpkgs#bc
     nixpkgs#playerctl
     nixpkgs#xorg.xkbcomp
+    nixpkgs#greenclip
     nixpkgs#nerd-fonts.jetbrains-mono
     "
     if nix profile install $PACKAGES --impure > /dev/null 2>&1; then
