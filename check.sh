@@ -50,7 +50,7 @@ echo ""
 
 echo "[Version]"
 VER_LOCAL="$(cat $CONFS/version 2>/dev/null || echo '?')"
-VER_REPO="$(curl -Ls https://raw.githubusercontent.com/yinpi21/yindots/main/version 2>/dev/null || echo '?')"
+VER_REPO="$(curl -Ls https://raw.githubusercontent.com/fred-lin-dev/yindots/main/version 2>/dev/null || echo '?')"
 echo "  Installée : $VER_LOCAL | Repo : $VER_REPO"
 [ "$VER_LOCAL" = "$VER_REPO" ] && ok "À jour" || warn "Mise à jour disponible (update-conf)"
 echo ""

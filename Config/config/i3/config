@@ -52,7 +52,7 @@ bindsym $mod+f          exec firefox
 bindsym $mod+n          exec --no-startup-id alacritty --class "float_window" -e sh $scripts/system/note.sh
 bindsym $mod+b          exec blueman-manager
 bindsym $mod+Shift+p    exec pavucontrol
-bindsym $mod+Shift+a    exec --no-startup-id bash -c '[ ! -d "$HOME/Obsidian" ] && git clone git@github.com:yinpi21/Obsidian.git "$HOME/Obsidian"; NIXPKGS_ALLOW_UNFREE=1 nix-shell -p obsidian --run "obsidian $HOME/Obsidian"'
+bindsym $mod+Shift+a    exec --no-startup-id bash -c '[ ! -d "$HOME/Obsidian" ] && git clone git@github.com:fred-lin-dev/Obsidian.git "$HOME/Obsidian"; NIXPKGS_ALLOW_UNFREE=1 nix-shell -p obsidian --run "obsidian $HOME/Obsidian"'
 
 # ── Menus ─────────────────────────────────────────────────────────────────────
 bindsym $mod+d          exec --no-startup-id rofi -show drun -dpi 1

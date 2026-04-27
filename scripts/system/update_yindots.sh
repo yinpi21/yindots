@@ -4,7 +4,7 @@
 AFS="$HOME/afs"
 CONFS="$AFS/.confs"
 TMP_DIR="$HOME/yindots_tmp"
-REPO_URL="https://github.com/yinpi21/yindots.git"
+REPO_URL="https://github.com/fred-lin-dev/yindots.git"
 BRANCH="main"
 
 GREEN=$(printf '\033[0;32m')

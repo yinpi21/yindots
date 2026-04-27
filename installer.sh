@@ -3,7 +3,7 @@
 #   installer.sh — Bootstrap yindots sur une machine EPITA
 #
 #   Usage (one-liner depuis n'importe quelle machine EPITA) :
-#     curl -Ls https://raw.githubusercontent.com/yinpi21/yindots/main/installer.sh | sh
+#     curl -Ls https://raw.githubusercontent.com/fred-lin-dev/yindots/main/installer.sh | sh
 #
 #   Clone dans un dossier temporaire, déploie dans ~/afs/.confs/,
 #   puis supprime le temporaire. Les fichiers existants (.ssh, .mozilla, etc.)
@@ -11,7 +11,7 @@
 # ══════════════════════════════════════════════════════════════════════════════
 
 BRANCH="main"
-REPO_URL="https://github.com/yinpi21/yindots.git"
+REPO_URL="https://github.com/fred-lin-dev/yindots.git"
 TMP_DIR="$HOME/yindots_tmp"
 TARGET_DIR="$HOME/afs/.confs"
 
