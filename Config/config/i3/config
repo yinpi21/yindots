@@ -38,6 +38,7 @@ exec        --no-startup-id xss-lock --transfer-sleep-lock -- $i3lock --nofork
 exec        --no-startup-id sh $scripts/startup_scripts/startup.sh
 
 exec_always --no-startup-id sh $confs/Config/Optimot/load_keyboard.sh
+exec        --no-startup-id dbus-update-activation-environment --systemd GTK_IM_MODULE=xim QT_IM_MODULE=xim XMODIFIERS=@im=none
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --xrender-sync-fence
 exec_always --no-startup-id "killall -q polybar; polybar main"
